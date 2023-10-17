@@ -47,8 +47,46 @@ greeting('2100')             | Good evening!          | 14
 
 """
 #endregion debai
-
-#region bailam
 def greeting(hour_str):
-  return 'todo'
+  kg = "00"
+  kp = "00"
+  if "am" in hour_str or "AM" in hour_str:
+      return("Good morning!")
+  elif " PM" in hour_str:
+      kg = hour_str.split(" PM")
+      if (len(str(kg[0])) >= 4):
+          kg = hour_str[0:2]
+  elif " pm" in hour_str:
+      kg = hour_str.split(" pm")
+      if (len(str(kg[0])) >= 4):
+          kg = hour_str[0:2]
+  elif "pm" in hour_str:
+      kg = hour_str.split("pm")
+      if (len(str(kg[0])) >= 4):
+          kg = hour_str[0:2]
+  elif "PM" in hour_str:
+      kg = hour_str.split("PM")
+      if (len(str(kg[0])) >= 4):
+          kg = hour_str[0:2]
+  else:
+      if ":" in hour_str:
+          kg = hour_str.split(":")
+          kp = hour_str.split(":")[1]
+      else:
+          kg = [hour_str[0:2],0]
+          kp = [hour_str[2:4],0]
+      if (int(kg[0]) >= 0 and int(kp[0]) >= 0 and int(kg[0]) <= 11 and int(kp[0]) <= 59):
+          return ("Good morning!")
+      elif (int(kg[0]) >= 5 and int(kp[0]) >= 00 and int(kg[0]) <= 12 and int(kp[0]) <= 59):
+          return ("Good afternoon!")
+      else:
+          return ("Good evening!")
+  if (int(kg[0]) >= 1 and int(kg[0]) < 6):
+      return ("Good afternoon!")
+  else:
+      return ("Good evening!")
+
+  
+
+
 #endregion bailam
